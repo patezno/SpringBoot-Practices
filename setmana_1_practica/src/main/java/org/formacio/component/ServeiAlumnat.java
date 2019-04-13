@@ -11,6 +11,8 @@ public class ServeiAlumnat {
 	@Autowired
 	public void inicialitza(RepositoriAlumnes repositori) {
 		this.repositori = repositori;
+		repositori.altaAlumne(1, "Antonia");
+		repositori.altaAlumne(2, "Joan");
 	}
 	
 	/**
