@@ -22,6 +22,9 @@ public class ServeiAlumnat {
 	 * Retorna true si l'alumne s'ha inserit, false si no.
 	 */
 	
+	public int getSizeAlumnes() {
+		return repositori.llistaAlumnes().size();
+	}
 	
 	public boolean matricula (int id, String alumne) {
 		if (alumne == null) {
