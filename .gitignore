@@ -24,3 +24,7 @@ nbdist/
 .nb-gradle/
 
 .DS_Store
+
+.metadata
+hello/
+SpringBoot-Practices
