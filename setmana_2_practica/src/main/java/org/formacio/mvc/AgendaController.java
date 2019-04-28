@@ -32,8 +32,14 @@ public class AgendaController {
 	
 	@RequestMapping(path="/contacte/{id}")
 	@ResponseBody
-	public Persona getContacte(@PathVariable String id) {
-		return agenda.recupera(id);
+	public Persona getContacte(@PathVariable String id) throws Exception {
+		
+		if (agenda.getBbdd().containsKey(id)) {
+			return agenda.recupera(id);
+		} else {
+			Exception idInvalid = new Exception();
+			throw idInvalid;	
+		}
 	}
 	
 }
