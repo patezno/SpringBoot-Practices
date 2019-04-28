@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -48,5 +49,11 @@ public class AgendaController {
 	@ResponseStatus(code=HttpStatus.NOT_FOUND)
 	@ExceptionHandler()
 	private void notFound(Exception idInvalid) {}
+	
+	@RequestMapping(path="/afegir", method=RequestMethod.POST)
+	@ResponseBody
+	public void afegir(String id, String nom, String telefon) {
+		agenda.inserta(id, nom, telefon);
+	}
 	
 }
