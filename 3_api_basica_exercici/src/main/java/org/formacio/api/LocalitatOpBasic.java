@@ -40,6 +40,7 @@ public class LocalitatOpBasic {
 	
 	@Transactional
 	public void modifica (Localitat localitat) {
+		em.merge(localitat);
 	}
 
 }
