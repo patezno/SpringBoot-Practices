@@ -75,7 +75,12 @@ public class LlibreOpsBasic {
 	 * (Aquest metode no llanca excepcions!)
 	 */
 	public boolean existeix (String isbn) {
-		return false;
+		Llibre llibre = em.find(Llibre.class, isbn);
+		if (llibre != null) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
