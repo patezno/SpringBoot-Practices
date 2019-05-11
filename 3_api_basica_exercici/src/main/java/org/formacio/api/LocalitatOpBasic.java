@@ -2,6 +2,7 @@ package org.formacio.api;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,6 +22,7 @@ public class LocalitatOpBasic {
 		return em.find(Localitat.class, id);
 	}
 	
+	@Transactional
 	public void alta (String nom, Integer habitants) {
 		Localitat localitat = new Localitat();
 		localitat.setNom(nom);
@@ -28,9 +30,15 @@ public class LocalitatOpBasic {
 		em.persist(localitat);
 	}
 	
+	@Transactional
 	public void elimina (long id) {
+		Localitat localitat = this.carrega(id);
+		if (localitat != null) {
+			em.remove(localitat);
+		}
 	}
 	
+	@Transactional
 	public void modifica (Localitat localitat) {
 	}
 
