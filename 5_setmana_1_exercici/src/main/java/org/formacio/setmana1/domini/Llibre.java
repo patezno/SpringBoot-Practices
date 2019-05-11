@@ -1,23 +1,38 @@
 package org.formacio.setmana1.domini;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Completa amb annotacions aquesta classe per tal que sigui una entitat
  * mapejada a la taula T_LLIBRES, tal com esta definida a src/main/resources/schema.sql
  * La clau primaria es la propietat isbn. Important: aquesta clau NO se autogenera. S'assigna des de l'aplicacio
  */
+@Entity
+@Table(name="t_llibres")
 public class Llibre {
-
+	
+	@Id
+	@Column(name="lli_isbn")
 	private String isbn;
 	
+	@Column(name="lli_titol")
 	private String titol;
 	
+	@Column(name="lli_autor")
 	private String autor;
 	
+	@Column(name="lli_pagines")
 	private Integer pagines;
 
 	// fitxeu-vos que aquesta propietat, a la base de dades, se guarda com VARCHAR2, no com INT.
 	// Aixo requeria d'una annotacio especifica
+	@Column(name="lli_recomanacio")
+	@Enumerated(EnumType.STRING)
 	private Recomanacio recomanacio;
 	
 	public String getIsbn() {
