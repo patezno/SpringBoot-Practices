@@ -22,6 +22,10 @@ public class LocalitatOpBasic {
 	}
 	
 	public void alta (String nom, Integer habitants) {
+		Localitat localitat = new Localitat();
+		localitat.setNom(nom);
+		localitat.setHabitants(habitants);
+		em.persist(localitat);
 	}
 	
 	public void elimina (long id) {
