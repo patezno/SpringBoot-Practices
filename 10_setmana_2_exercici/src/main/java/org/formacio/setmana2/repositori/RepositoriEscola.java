@@ -2,6 +2,7 @@ package org.formacio.setmana2.repositori;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.formacio.setmana2.domini.Alumne;
 import org.formacio.setmana2.domini.Curs;
@@ -27,7 +28,7 @@ public class RepositoriEscola {
 		return em.find(Alumne.class, alumne);
 	}
 	
-	
+	@Transactional
 	public Matricula apunta (String alumne, String curs) throws EdatIncorrecteException {
 		Matricula matricula = new Matricula();
 		Alumne newAlumne = carregaAlumne(alumne);
