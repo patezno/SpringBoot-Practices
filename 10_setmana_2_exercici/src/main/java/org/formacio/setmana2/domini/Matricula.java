@@ -17,7 +17,7 @@ public class Matricula {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="mat_id")
 	private Long id; 
-	
+
 	@OneToOne
 	@JoinColumn(name="mat_alumne")
 	private Alumne alumne;
