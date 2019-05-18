@@ -1,0 +1,4 @@
+Projecte que mostra el problema de tenir les transaccions definides a nivell
+de repositori.
+
+Per provar-ho, executeu el test amb distints valors per el parametre quantitat
